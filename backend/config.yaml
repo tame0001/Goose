@@ -1,0 +1,35 @@
+ETF: 
+  - ARKG
+  - ARKF
+  - ARKX
+  - ARKQ
+  - ARKW
+  - ARKK
+
+request_header: 
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36
+
+ARKG: 
+  url: https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_GENOMIC_REVOLUTION_MULTISECTOR_ETF_ARKG_HOLDINGS.csv
+  name: Genomic Revolution ETF
+
+ARKF: 
+  url: https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_FINTECH_INNOVATION_ETF_ARKF_HOLDINGS.csv
+  name: Fintech Innovation ETF
+
+ARKX:
+  url: https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_SPACE_EXPLORATION_&_INNOVATION_ETF_ARKX_HOLDINGS.csv
+  name: Space Exploration & Innovation ETF
+
+ARKQ:
+  url: https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_AUTONOMOUS_TECHNOLOGY_&_ROBOTICS_ETF_ARKQ_HOLDINGS.csv
+  name: Autonomous Technology & Robotics ETF
+
+ARKW:
+  url: https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_NEXT_GENERATION_INTERNET_ETF_ARKW_HOLDINGS.csv
+  name: Next Generation Internet ETF
+
+ARKK:
+  url: https://ark-funds.com/wp-content/fundsiteliterature/csv/ARK_INNOVATION_ETF_ARKK_HOLDINGS.csv
+  name: Innovation ETF
+
