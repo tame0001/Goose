@@ -1,2 +1,2 @@
-yfinance==0.1.59
-fastapi
+yfinance==0.2.*
+fastapi==0.104.*
