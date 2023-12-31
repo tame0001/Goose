@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 
 import { AccountRead } from './interfaces';
-import { environment } from '../../environments/environment';
+import { AccountService } from './account.service';
 
 @Component({
   selector: 'app-account',
@@ -13,7 +12,7 @@ import { environment } from '../../environments/environment';
   template: `
     <table mat-table [dataSource]="allAccounts">
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <th mat-header-cell *matHeaderCellDef>Account</th>
         <td mat-cell *matCellDef="let row">{{ row.name }}</td>
       </ng-container>
       <ng-container matColumnDef="balance">
@@ -39,13 +38,11 @@ export class AccountComponent {
   public allAccounts = new MatTableDataSource<AccountRead>();
   public columnsToDisplay: string[] = ['name', 'balance'];
 
-  constructor(private _http: HttpClient) {}
+  constructor(private _DataService: AccountService) {}
 
   ngOnInit() {
-    this._http
-      .get<AccountRead[]>(`${environment.apiURL}/account`)
-      .subscribe((data) => {
-        this.allAccounts = new MatTableDataSource<AccountRead>(data);
-      });
+    this._DataService.getAllAccount().subscribe((data) => {
+      this.allAccounts = new MatTableDataSource<AccountRead>(data);
+    });
   }
 }
