@@ -13,7 +13,7 @@ export class TransactionComponent {
 
   constructor(private _route: ActivatedRoute) {}
 
-  onNgInit() {
+  ngOnInit() {
     this._route.params.subscribe((params) => {
       this._accountID = Number(params['accountID']);
       console.log(this._accountID);

@@ -43,10 +43,10 @@ export class AccountComponent {
   public allAccounts = new MatTableDataSource<AccountRead>();
   public columnsToDisplay: string[] = ['name', 'balance'];
 
-  constructor(private _DataService: AccountService) {}
+  constructor(private _accountService: AccountService) {}
 
   ngOnInit() {
-    this._DataService.getAllAccount().subscribe((data) => {
+    this._accountService.getAllAccount().subscribe((data) => {
       this.allAccounts = new MatTableDataSource<AccountRead>(data);
     });
   }
