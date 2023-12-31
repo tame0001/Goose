@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 
 import { AccountRead } from './interfaces';
@@ -8,7 +9,7 @@ import { AccountService } from './account.service';
 @Component({
   selector: 'app-account',
   standalone: true,
-  imports: [MatTableModule, CommonModule],
+  imports: [MatTableModule, CommonModule, RouterModule],
   template: `
     <table mat-table [dataSource]="allAccounts">
       <ng-container matColumnDef="name">
@@ -22,7 +23,11 @@ import { AccountService } from './account.service';
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-      <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: columnsToDisplay"
+        [routerLink]="'account/' + row.id"
+      ></tr>
     </table>
   `,
   styles: `
