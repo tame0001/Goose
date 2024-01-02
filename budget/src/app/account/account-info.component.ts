@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table';
 
@@ -10,12 +10,14 @@ import { TransactionNoAccountID } from '../transaction/interface';
 @Component({
   selector: 'app-account-info',
   standalone: true,
-  imports: [CommonModule, MatTableModule],
+  imports: [CommonModule, MatTableModule, RouterModule],
   template: `
     <table mat-table [dataSource]="transactions">
       <ng-container matColumnDef="timestamp">
         <th mat-header-cell *matHeaderCellDef>Timestamp</th>
-        <td mat-cell *matCellDef="let row">{{ row.timestamp | date: 'short' }}</td>
+        <td mat-cell *matCellDef="let row">
+          {{ row.timestamp | date : 'short' }}
+        </td>
       </ng-container>
       <ng-container matColumnDef="amount">
         <th mat-header-cell *matHeaderCellDef>Amount</th>
@@ -30,7 +32,11 @@ import { TransactionNoAccountID } from '../transaction/interface';
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-      <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: columnsToDisplay"
+        [routerLink]="'transaction/' + row.id"
+      ></tr>
     </table>
   `,
   styles: `

@@ -9,14 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   styles: ``,
 })
 export class TransactionComponent {
-  private _accountID?: number;
+  private _transactionID?: number;
 
   constructor(private _route: ActivatedRoute) {}
 
   ngOnInit() {
     this._route.params.subscribe((params) => {
-      this._accountID = Number(params['accountID']);
-      console.log(this._accountID);
+      this._transactionID = params['transactionID'];
+      console.log(this._transactionID);
     });
   }
 }
