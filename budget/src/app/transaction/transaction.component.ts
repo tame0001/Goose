@@ -5,8 +5,8 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'app-transaction',
   standalone: true,
   imports: [],
-  template: ` <p>transaction works!</p> `,
-  styles: ``,
+  templateUrl: './transaction.component.html',
+  styleUrl: './transaction.component.css',
 })
 export class TransactionComponent {
   private _transactionID?: number;

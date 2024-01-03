@@ -10,34 +10,8 @@ import { AccountService } from './account.service';
   selector: 'app-account',
   standalone: true,
   imports: [MatTableModule, CommonModule, RouterModule],
-  template: `
-    <table mat-table [dataSource]="allAccounts">
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Account</th>
-        <td mat-cell *matCellDef="let row">{{ row.name }}</td>
-      </ng-container>
-      <ng-container matColumnDef="balance">
-        <th mat-header-cell *matHeaderCellDef>Balance</th>
-        <td mat-cell *matCellDef="let row">
-          {{ row.balance | number : '.2-2' }}
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; columns: columnsToDisplay"
-        [routerLink]="'account/' + row.id"
-      ></tr>
-    </table>
-  `,
-  styles: `
-  .mat-column-balance {
-    text-align: center;
-  }
-  .mat-column-name {
-    text-align: center;
-  }
-  `,
+  templateUrl: './account.component.html',
+  styleUrl: './account.component.css',
 })
 export class AccountComponent {
   public allAccounts = new MatTableDataSource<AccountRead>();

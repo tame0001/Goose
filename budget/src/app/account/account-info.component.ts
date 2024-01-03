@@ -11,45 +11,8 @@ import { TransactionNoAccountID } from '../transaction/interface';
   selector: 'app-account-info',
   standalone: true,
   imports: [CommonModule, MatTableModule, RouterModule],
-  template: `
-    <table mat-table [dataSource]="transactions">
-      <ng-container matColumnDef="timestamp">
-        <th mat-header-cell *matHeaderCellDef>Timestamp</th>
-        <td mat-cell *matCellDef="let row">
-          {{ row.timestamp | date : 'short' }}
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="amount">
-        <th mat-header-cell *matHeaderCellDef>Amount</th>
-        <td mat-cell *matCellDef="let row">
-          {{ row.amount | number : '.2-2' }}
-        </td>
-      </ng-container>
-      <ng-container matColumnDef="note">
-        <th mat-header-cell *matHeaderCellDef>Note</th>
-        <td mat-cell *matCellDef="let row">
-          {{ row.note }}
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-      <tr
-        mat-row
-        *matRowDef="let row; columns: columnsToDisplay"
-        [routerLink]="'transaction/' + row.id"
-      ></tr>
-    </table>
-  `,
-  styles: `
-    .mat-column-timestamp {
-    text-align: center;
-    }
-    .mat-column-amount {
-    text-align: center;
-    }
-    .mat-column-note {
-    text-align: center;
-    }
- `,
+  templateUrl: './account-info.component.html',
+  styleUrl: './account-info.component.css',
 })
 export class AccountInfoComponent {
   private _accountID?: number;
