@@ -13,6 +13,6 @@
   <tr
     mat-row
     *matRowDef="let row; columns: columnsToDisplay"
-    [routerLink]="'account/' + row.id"
+    routerLink="/account/{{row.id}}"
   ></tr>
 </table>

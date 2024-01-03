@@ -21,6 +21,6 @@
   <tr
     mat-row
     *matRowDef="let row; columns: columnsToDisplay"
-    [routerLink]="'transaction/' + row.id"
+    routerLink="/transaction/{{row.id}}"
   ></tr>
 </table>
