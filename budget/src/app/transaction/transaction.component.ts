@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TransactionService } from './transaction.service';
+import { TransactionRead } from './interface';
 
 @Component({
   selector: 'app-transaction',
@@ -10,13 +12,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TransactionComponent {
   private _transactionID?: number;
+  public transactionInfo?: TransactionRead;
 
-  constructor(private _route: ActivatedRoute) {}
+  constructor(
+    private _route: ActivatedRoute,
+    private _transactionService: TransactionService
+  ) {}
 
   ngOnInit() {
     this._route.params.subscribe((params) => {
       this._transactionID = params['transactionID'];
-      console.log(this._transactionID);
+      this._transactionService
+        .getTransactionInfo(this._transactionID!)
+        .subscribe((data) => {
+          this.transactionInfo = data;
+          console.log(this.transactionInfo);
+        });
     });
   }
 }
