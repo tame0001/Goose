@@ -1,1 +1,3 @@
-<p>transaction works!</p> 
+<div *ngIf="transactionInfo$ | async; let transactionInfo">
+    <span>{{transactionInfo.amount}}</span>
+</div>

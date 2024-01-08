@@ -1,18 +1,20 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 import { TransactionService } from './transaction.service';
 import { TransactionRead } from './interface';
 
 @Component({
   selector: 'app-transaction',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './transaction.component.html',
   styleUrl: './transaction.component.css',
 })
 export class TransactionComponent {
   private _transactionID?: number;
-  public transactionInfo?: TransactionRead;
+  public transactionInfo$?: Observable<TransactionRead>;
 
   constructor(
     private _route: ActivatedRoute,
@@ -22,12 +24,7 @@ export class TransactionComponent {
   ngOnInit() {
     this._route.params.subscribe((params) => {
       this._transactionID = params['transactionID'];
-      this._transactionService
-        .getTransactionInfo(this._transactionID!)
-        .subscribe((data) => {
-          this.transactionInfo = data;
-          console.log(this.transactionInfo);
-        });
+      this.transactionInfo$ = this._transactionService.getTransactionInfo(this._transactionID!);
     });
   }
 }
