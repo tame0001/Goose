@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { TransactionService } from './transaction.service';
 import { TransactionRead } from './interface';
 
 @Component({
   selector: 'app-transaction',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatProgressSpinnerModule],
   templateUrl: './transaction.component.html',
   styleUrl: './transaction.component.css',
 })
