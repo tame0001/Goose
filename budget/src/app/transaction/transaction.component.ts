@@ -2,14 +2,15 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TransactionService } from './transaction.service';
 import { TransactionRead } from './interface';
 
 @Component({
   selector: 'app-transaction',
   standalone: true,
-  imports: [CommonModule, MatProgressSpinnerModule],
+  imports: [CommonModule, MatProgressSpinnerModule, MatCardModule],
   templateUrl: './transaction.component.html',
   styleUrl: './transaction.component.css',
 })
@@ -25,7 +26,9 @@ export class TransactionComponent {
   ngOnInit() {
     this._route.params.subscribe((params) => {
       this._transactionID = params['transactionID'];
-      this.transactionInfo$ = this._transactionService.getTransactionInfo(this._transactionID!);
+      this.transactionInfo$ = this._transactionService.getTransactionInfo(
+        this._transactionID!
+      );
     });
   }
 }

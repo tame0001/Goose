@@ -1,5 +1,9 @@
-@if (transactionInfo$ | async; as transaction) {
-<span>{{ transaction.amount }}</span>
-} @else {
-<mat-spinner mode="indeterminate"></mat-spinner>
-}
+<mat-card>
+  <mat-card-content>
+    @if (transactionInfo$ | async; as transaction) {
+    <span>{{ transaction.amount }}</span>
+    } @else {
+    <mat-spinner mode="indeterminate"></mat-spinner>
+    }
+  </mat-card-content>
+</mat-card>
