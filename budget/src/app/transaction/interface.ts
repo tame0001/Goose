@@ -13,3 +13,9 @@ export interface TransactionRead extends TransactionBase {
 
 export interface TransactionNoAccountID
   extends Omit<TransactionRead, 'account_id'> {}
+
+export interface TransactionUpdate
+  extends Omit<TransactionBase, 'amount' | 'account_id'> {
+  amount?: number;
+  timestamp?: Date;
+}
