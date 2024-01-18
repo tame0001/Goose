@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { v4 as uuidv4 } from 'uuid';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TransactionService } from './transaction.service';
@@ -15,7 +16,7 @@ import { TransactionRead } from './interface';
   styleUrl: './transaction.component.css',
 })
 export class TransactionComponent {
-  private _transactionID?: number;
+  private _transactionID?: typeof uuidv4;
   public transactionInfo$?: Observable<TransactionRead>;
 
   constructor(
