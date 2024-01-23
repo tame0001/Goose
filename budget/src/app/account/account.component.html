@@ -13,6 +13,14 @@
   <tr
     mat-row
     *matRowDef="let row; columns: columnsToDisplay"
-    routerLink="/account/{{row.id}}"
+    routerLink="/account/{{ row.id }}"
   ></tr>
 </table>
+
+@if (isLoading) {
+<mat-spinner
+  mode="indeterminate"
+  [strokeWidth]="10"
+  [diameter]="400"
+></mat-spinner>
+}
