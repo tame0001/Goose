@@ -16,11 +16,13 @@
     routerLink="/account/{{ row.id }}"
   ></tr>
 </table>
-
-@if (isLoading) {
-<mat-spinner
-  mode="indeterminate"
-  [strokeWidth]="10"
-  [diameter]="400"
-></mat-spinner>
-}
+<div class="flex justify-center h-full items-center m-2">
+  @if (isLoading) {
+  <mat-spinner
+    mode="indeterminate"
+    color="warn"
+    [strokeWidth]="5"
+    [diameter]="480"
+  ></mat-spinner>
+  }
+</div>
