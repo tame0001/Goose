@@ -7,9 +7,18 @@ export const routes: Routes = [
   {
     path: '',
     component: AccountComponent,
+    title: 'Budget App',
   },
-  { path: 'account/:accountID', component: AccountInfoComponent },
-  { path: 'transaction/:transactionID', component: TransactionComponent },
+  {
+    path: 'account/:accountID',
+    component: AccountInfoComponent,
+    title: 'Account',
+  },
+  {
+    path: 'transaction/:transactionID',
+    component: TransactionComponent,
+    title: 'Transaction',
+  },
   {
     path: '**',
     redirectTo: '/',

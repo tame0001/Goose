@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav mode="side">
+    <app-navbar></app-navbar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+    <mat-toolbar color="primary"> Footer </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
