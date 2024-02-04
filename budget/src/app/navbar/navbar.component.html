@@ -1,1 +1,23 @@
-<p>navbar works!</p>
+<div class="w-24 md:w-48 grid grid-cols-1 gap-2 m-1">
+  <button
+    routerLink="/"
+    #accountLink="routerLinkActive"
+    routerLinkActive="active-link"
+    ariaCurrentWhenActive="page"
+    mat-raised-button
+    color="{{ accountLink.isActive ? 'primary' : 'accent' }}"
+  >
+    Accounts
+  </button>
+
+  <button
+    routerLink="/setting"
+    #settingLink="routerLinkActive"
+    routerLinkActive="active-link"
+    ariaCurrentWhenActive="page"
+    mat-raised-button
+    color="{{ settingLink.isActive ? 'primary' : 'accent' }}"
+  >
+    Settings
+  </button>
+</div>

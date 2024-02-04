@@ -13,3 +13,7 @@ export interface AccountRead extends AccountBase {
 export interface AccountWithTransactions extends AccountRead {
   transactions: Array<TransactionNoAccountID>;
 }
+
+export interface AccountCreate extends AccountBase{
+  isValid: boolean;
+}

@@ -1,6 +1,10 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button (click)="toggleSidenav()">
+  <button mat-icon-button (click)="sidenavService.toggle()" matTooltip="Show menu">
     <mat-icon>menu</mat-icon>
+  </button>
+  <span class="flex-auto text-center">Accounts</span>
+  <button mat-icon-button (click)="openDialog()" matTooltip="Add new account">
+    <mat-icon>add</mat-icon>
   </button>
 </mat-toolbar>
 
