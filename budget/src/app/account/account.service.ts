@@ -1,7 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { AccountRead, AccountWithTransactions } from './interfaces';
+import {
+  AccountCreate,
+  AccountRead,
+  AccountWithTransactions,
+} from './interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +21,9 @@ export class AccountService {
 
   getAccountDetail(accountID: number) {
     return this._http.get<AccountWithTransactions>(`${this._url}/${accountID}`);
+  }
+
+  createAccount(accountInfo: AccountCreate) {
+    return this._http.post(this._url, accountInfo, { observe: 'response' });
   }
 }
